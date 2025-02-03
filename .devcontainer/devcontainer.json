@@ -1,21 +1,26 @@
 {
-  "name": "PHP Dev Container",
+  "name": "PHP + PostgreSQL Dev Container",
   "image": "mcr.microsoft.com/devcontainers/php:8",
   "features": {
+    "ghcr.io/devcontainers/features/common-utils:2.5.2": {},
     "ghcr.io/devcontainers/features/postgres:1": {
       "version": "15",
       "password": "mypassword"
-    },
-    "ghcr.io/devcontainers/features/common-utils:1": {}
+    }
   },
   "forwardPorts": [8000, 5432],
-  "postCreateCommand": "php -S 0.0.0.0:8000 -t .",
+  "postCreateCommand": "php -v && php -S 0.0.0.0:8000 -t .",
   "customizations": {
     "vscode": {
+      "settings": {
+        "php.validate.executablePath": "/usr/bin/php",
+        "php.executablePath": "/usr/bin/php"
+      },
       "extensions": [
         "bmewburn.vscode-intelephense-client",
         "ms-azuretools.vscode-docker",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens"
       ]
     }
   }
