@@ -1,0 +1,9 @@
+{
+  "name": "PHP Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/php:8",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2.5.2": {}
+  },
+  "forwardPorts": [8000],
+  "postCreateCommand": "php -S 0.0.0.0:8000 -t ."
+}
