@@ -2,8 +2,20 @@
   "name": "PHP Dev Container",
   "image": "mcr.microsoft.com/devcontainers/php:8",
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:2.5.2": {}
+    "ghcr.io/devcontainers/features/postgres:1": {
+      "version": "15",
+      "password": "mypassword"
+    }
   },
-  "forwardPorts": [8000],
-  "postCreateCommand": "php -S 0.0.0.0:8000 -t ."
+  "forwardPorts": [8000, 5432],
+  "postCreateCommand": "php -S 0.0.0.0:8000 -t .",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "ms-azuretools.vscode-docker",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
 }
